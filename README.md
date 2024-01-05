@@ -1,6 +1,10 @@
 # $\text{Style}^2\text{Talker}$: High-Resolution Talking Head Generation with Emotion Style and Art Style
 
-### Paper ID: 610
+This repository provides the official PyTorch implementation for the following paper:<br>
+**$\text{Style}^2\text{Talker}$: High-Resolution Talking Head Generation with Emotion Style and Art Style**<br>
+[Shuai Tan](https://scholar.google.com.hk/citations?user=9KjKwDwAAAAJ&hl=zh-CN), et al.<br>
+In AAAI, 2024.<br>
+
 
 ![visualization](demo/teaser.svg)
 
