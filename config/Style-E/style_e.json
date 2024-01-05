@@ -1,0 +1,52 @@
+{
+  "pipeline": "style_e",
+  "tag": "style_e",
+  "segment_tag": "",
+  "learning_rate": 2.0,
+  "warmup_steps": 100000,
+  "model_path": "/checkpoints/style_e/",
+  "num_epochs": 1000,
+  "batch_size": 128,
+  "log_step": 1,
+  "data": {
+   "local": true,
+   "basedir": "../",
+   "speaker": "conan"
+  },
+  "transformer_config":{
+    "in_dim": 64,
+    "hidden_size": 256,
+    "num_hidden_layers": 12,
+    "num_attention_heads": 8,
+    "intermediate_size": 384,
+    "quant_sequence_length": 4,
+    "sequence_length": 32,
+    "quant_factor": 3
+  },
+  "VQuantizer": {
+    "n_embed": 500,
+    "zquant_dim": 256
+  },
+  "style_class":1323,
+  "loss_weights": {
+    "tem_loss": 1,
+    "mouth_loss": 20,
+    "recon_loss": 66,
+    "result_recon_loss": 66,
+    "cross_loss": 3,
+    "dis_loss": 5,
+    "trip_loss": 1,
+    "dis_loss3": 1
+  },
+  "train_discriminator": true,
+  "episode_length":32,
+  "discriminator_layer_num":4,
+  "feature_dim":16,
+  "save_epoch": 20,
+  "theta": 1,
+  "style_loss_weights":{
+    "g_loss":10,
+    "cross_loss":0.01,
+    "trip_loss":0.01
+  }
+}

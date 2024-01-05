@@ -1,0 +1,13 @@
+# Data options.
+data:
+    path: Style2Talker
+    resolution: 256
+    semantic_radius: 13
+    train:
+      batch_size: 8
+      distributed: True
+    val:
+      batch_size: 8
+      distributed: True
+
+
