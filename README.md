@@ -37,8 +37,6 @@ pip install -r requirements.txt
 
 ## Inference
 
-- The size of pre-trained model has already exceeds the 50M limited in the [Submission Guidelines for Supplementary Material](https://aaai.org/aaai-conference/aaai-24-supplementary-material/). Moreover, in order not to compromise the anonymity, the download link of the model is not currently available.
-
 - Run the demo：
     ```bash
     python inference.py --img_path path/to/image --wav_path path/to/audio --source_3DMM path/to/source_3DMM --style_e_source "a textual description for emotion style" --art_style_id num/for/art_style --save_path path/to/save
