@@ -1,7 +1,7 @@
 # $\text{Style}^2\text{Talker}$: High-Resolution Talking Head Generation with Emotion Style and Art Style
 
-This repository provides the official PyTorch implementation for the following paper:<br>
-**$\text{Style}^2\text{Talker}$: High-Resolution Talking Head Generation with Emotion Style and Art Style**<br>
+#### This repository provides official implementations of PyTorch for the $partial$ core components of the following paper:<br>
+**[$\text{Style}^2\text{Talker}$: High-Resolution Talking Head Generation with Emotion Style and Art Style](https://ojs.aaai.org/index.php/AAAI/article/view/28313)**<br>
 [Shuai Tan](https://scholar.google.com.hk/citations?user=9KjKwDwAAAAJ&hl=zh-CN), et al.<br>
 In AAAI, 2024.<br>
 
@@ -11,16 +11,6 @@ In AAAI, 2024.<br>
 Our approach takes an identity image and an audio clip as inputs and generates a talking head with emotion style and art style, which are controlled respectively by an emotion source text and an art source picture. The pipeline of our $\text{Style}^2\text{Talker}$ is as follows:
 
 ![visualization](demo/pipeline.svg)
-
-To text-driven emotion style generation in the case of the text-emotion paired data scarcity, we present a labor-free approach that relies on large-scale pretrained models to automatically generate corresponding emotional textual descriptions for videos in an existing emotional audio-visual dataset:
-
-![visualization](demo/data.svg)
-
-## Large-scale pretrained models for labor-free automatically annotation pipeline
-* [OpenFace](https://github.com/TadasBaltrusaitis/OpenFace)
-* [GPT-3](https://github.com/openai/GPT-3)
-* [CLIP](https://github.com/openai/CLIP)
-
 
 
 ## Requirements
@@ -44,21 +34,10 @@ pip install -r requirements.txt
   The result will be stored in save_path.
 
 
-## Evaluation
-- We use [VToonify](https://github.com/williamyang1991/VToonify) to generate artistically stylized ground truth from MEAD and HDTF, and adopt the codes released by [vico_challenge_baseline](https://github.com/dc3ea9f/vico_challenge_baseline/tree/main/evaluations) to assess the results.
-
 ## Data Preprocess:
 - Crop videos in training datasets:
     ```bash
     python data_preprocess/crop_video.py
-    ```
-- Split video: Since the video in HDTF is too long, we split both the video and the corresponding audio into 5s segments:
-    ```bash
-    python data_preprocess/split_HDTF_video.py
-    ```
-
-    ```bash
-    python data_preprocess/split_HDTF_audio.py
     ```
 - Extract 3DMM parameters from cropped videos using [Deep3DFaceReconstruction](https://github.com/microsoft/Deep3DFaceReconstruction):
     ```bash
@@ -77,15 +56,12 @@ pip install -r requirements.txt
     python data_preprocess/prepare_lmdb.py
     ```
 ## Train
-- Train Style-E:
+- Following VToonify, different art styles correspond to different checkpoints, and you can use the following script to train the model to get the art style you want:
     ```bash
-    python train_style_e.py
-    ```
-- Train Style-A:
-    ```bash
+    # Train Style-A:
     python -m torch.distributed.launch --nproc_per_node=4 --master_port 12344 train_style_a.py
     ```
-
+    
 ## Dataset
 - We use the following dataset for Style-E training.
 1) **MEAD**. [download link](https://wywu.github.io/projects/MEAD/MEAD.html).
@@ -109,3 +85,17 @@ Some code are borrowed from following projects:
 * [FOMM video preprocessing](https://github.com/AliaksandrSiarohin/video-preprocessing)
 
 Thanks for their contributions!
+
+## Citation
+If you find this codebase useful for your research, please use the following entry.
+```BibTeX
+@inproceedings{tan2024style2talker,
+  title={Style2Talker: High-Resolution Talking Head Generation with Emotion Style and Art Style},
+  author={Tan, Shuai and Ji, Bin and Pan, Ye},
+  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume={38},
+  number={5},
+  pages={5079--5087},
+  year={2024}
+}
+```
