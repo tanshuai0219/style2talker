@@ -1,7 +1,7 @@
 # $\text{Style}^2\text{Talker}$: High-Resolution Talking Head Generation with Emotion Style and Art Style
 
 #### This repository provides official implementations of PyTorch for the $partial$ core components of the following paper:<br>
-[**$\text{Style}^2\text{Talker}$: High-Resolution Talking Head Generation with Emotion Style and Art Style**](https://ojs.aaai.org/index.php/AAAI/article/view/28313)<br>
+[**Style2Talker: High-Resolution Talking Head Generation with Emotion Style and Art Style**](https://ojs.aaai.org/index.php/AAAI/article/view/28313)<br>
 [Shuai Tan](https://scholar.google.com.hk/citations?user=9KjKwDwAAAAJ&hl=zh-CN), et al.<br>
 In AAAI, 2024.<br>
 
