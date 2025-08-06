@@ -25,6 +25,13 @@ conda activate style2talker
 pip install -r requirements.txt
 ```
 
+## 🎬 Quick Start
+
+Download the ckpt of stage2 [huggingface link](https://huggingface.co/Mchang0127/Style2Talker_checkpoint/tree/main) and put them into ./ckpts.
+
+We will release the ckpt of stage1 latter.
+
+
 ## Inference
 
 - Run the demo：
